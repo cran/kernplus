@@ -1,4 +1,4 @@
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("kernplus 0.1.0 (2017-06-07)")
-  packageStartupMessage("Copyright \uA9 2017 Y. Ding, H. Hwangbo, and Texas A&M University")
+  packageStartupMessage("kernplus 0.1.1 (2018-04-05)")
+  packageStartupMessage("Copyright \uA9 2018 Y. Ding, H. Hwangbo, and Texas A&M University")
 }

@@ -7,44 +7,51 @@
 kp.pwcurv(y, x, x.new = x, id.spd = 1, id.dir = NA)
 }
 \arguments{
-\item{y}{An \eqn{n}-dimensional vector or a matrix of size \eqn{n} by 1 containing wind power output data.
-This along with x trains the multidimensional power curve model.}
+\item{y}{An \eqn{n}-dimensional vector or a matrix of size \eqn{n} by 1
+containing wind power output data. This along with x trains the
+multidimensional power curve model.}
 
-\item{x}{An \eqn{n} by \eqn{p} matrix or a data frame containing the input data for \eqn{p}
-environmental variables. This \code{x} must have the same number of rows as \code{y}, i.e., \eqn{n}.}
+\item{x}{An \eqn{n} by \eqn{p} matrix or a data frame containing the input
+data for \eqn{p} predictor variables (wind and weather variables). This
+\code{x} must have the same number of rows as \code{y}, i.e., \eqn{n}.}
 
-\item{x.new}{A matrix or a data frame containing the input conditions of the \eqn{p} environmental variables,
-for each of which a prediction of wind power output will be made. This is an optional parameter and is
-set to \code{x} by default.}
+\item{x.new}{A matrix or a data frame containing new input conditions of the
+\eqn{p} predictor variables for which a prediction of wind power output
+will be made. This is an optional parameter and will be set to \code{x} by
+default, if it is not supplied.}
 
-\item{id.spd}{The column number of wind speed data in \code{x} (and \code{x.new}, if supplied).
-Default to \code{1}.}
+\item{id.spd}{The column number of \code{x} (and of \code{x.new}, if
+supplied) indicating wind speed data . Default to \code{1}.}
 
-\item{id.dir}{The column number of wind direction data in \code{x} (and \code{x.new}, if supplied).
-Default to \code{NA}, but this needs to be set if \code{x} includes wind direction data.}
+\item{id.dir}{The column number of \code{x} (and of \code{x.new}, if
+supplied) indicating wind direction data. Default to \code{NA}, but this
+parameter needs to be set if \code{x} includes wind direction data.}
 }
 \value{
-A vector representing the predicted power output for the new environmental condition specified in
-  \code{x.new}. If \code{x.new} is not supplied, this function returns the fitted power output for the given
+A vector representing the predicted power output for the new
+  wind/weather condition specified in \code{x.new}. If \code{x.new} is not
+  supplied, this function returns the fitted power output for the given
   \code{x}.
 }
 \description{
-Takes multiple environmental variable inputs measured on an operating wind farm
-and predicts the wind power output under the given environmental condition.
+Takes multiple environmental variable inputs measured on an operating wind
+farm and predicts the wind power output under the given environmental
+condition.
 }
 \note{
-\itemize{
-  \item This function is developed for wind power prediction. As such, the response \code{y} represents
-    wind power output and the covariates \code{x} includes multiple environmental variables that potentially
-    affect the power output.
-  \item The data matrix \code{x} is expected to include at least wind speed and wind direction
-    data. As measurements of other environmental variables become available, they can be added to
-    the \code{x}. Typically, the first column of \code{x} corresponds to wind speed data and the
-    second column to wind direction data and, as such, \code{id.spd = 1} and \code{id.dir = 2}.
-  \item If \code{x} has a single variable of wind speed, i.e., \eqn{p = 1} and \code{id.spd = 1},
-    this function returns the estimate of the Nadaraya-Watson estimator with a Gaussian kernel
-    by using the \code{ksmooth} function in the \pkg{stats} package.
-}
+\itemize{ \item This function is developed for wind power prediction.
+  As such, the response \code{y} represents wind power output and the
+  covariates \code{x} include multiple wind and weather variables that
+  potentially affect the power output. \item The data matrix \code{x} is
+  expected to include at least wind speed and wind direction data. As
+  measurements of other environmental variables become available, they can be
+  added to the \code{x}. Typically, the first column of \code{x} corresponds
+  to wind speed data and the second column to wind direction data and, as
+  such, \code{id.spd = 1} and \code{id.dir = 2}. \item If \code{x} has a
+  single variable of wind speed, i.e., \eqn{p = 1} and \code{id.spd = 1},
+  this function returns an estimate (or prediction) of the Nadaraya-Watson
+  estimator with a Gaussian kernel by using the \code{ksmooth} function in
+  the \pkg{stats} package. }
 }
 \examples{
 head(windpw)
@@ -80,7 +87,7 @@ ls.fold <- rep(list(c()), 10)
 for(fold in 1:9) {
   ls.fold[[fold]] <- index[((fold-1)*n.fold+1):(fold*n.fold)]
 }
-ls.fold[[10]] <- index[(9*n.fold+1):(10*n.fold)]
+ls.fold[[10]] <- index[(9*n.fold+1):nrow(windpw)]
 
 # Predict wind power output.
 pred.res <- rep(list(c()), 10)
@@ -99,9 +106,10 @@ mean(rmse)
 sd(rmse)
 }
 \references{
-Lee, G., Ding, Y., Genton, M.G., and Xie, L. (2015) Power Curve Estimation with
-  Multivariate Environmental Factors for Inland and Offshore Wind Farms, \emph{Journal of the
-  American Statistical Association} 110(509):56-67.
+Lee, G., Ding, Y., Genton, M.G., and Xie, L. (2015) Power Curve
+  Estimation with Multivariate Environmental Factors for Inland and Offshore
+  Wind Farms, \emph{Journal of the American Statistical Association}
+  110(509):56-67.
 }
 \seealso{
 \code{\link{windpw}}, \code{\link[stats]{ksmooth}}

@@ -37,7 +37,7 @@ AMK <- function(y.tr, X.tr, X.ts, bw, id.spd, id.dir) {
 
   cat("Estimating (%)\n")
   cat("0")
-  est <- matrix(NA, n.ts, 1)
+  est <- rep(NA, n.ts)
   cnt <- 0
   for (i in 1:n.ts) {
     cnt <- cnt + 1
