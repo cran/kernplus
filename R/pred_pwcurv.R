@@ -123,14 +123,14 @@ kp.pwcurv <- function(y, x, x.new = x, id.spd = 1, id.dir = NA) {
 
   if (is.null(dim(x)) | is.vector(x)) {
     bw <- KernSmooth::dpill(x, y)
-    id.seq <- order(x)
-    est <- rep(NA, length(x))
+    id.seq <- order(x.new)
+    est <- rep(NA, length(x.new))
     est[id.seq] <- stats::ksmooth(x, y, kernel = "normal", bandwidth = bw, n.points = length(x.new), x.points = x.new)$y
   } else if (is.matrix(x)) {
     if (ncol(x) == 1) {
       bw <- KernSmooth::dpill(x, y)
-      id.seq <- order(x)
-      est <- rep(NA, length(x))
+      id.seq <- order(x.new)
+      est <- rep(NA, length(x.new))
       est[id.seq] <- stats::ksmooth(x, y, kernel = "normal", bandwidth = bw, n.points = length(x.new), x.points = x.new)$y
     } else {
       bw <- bw.adp(y, x, id.dir)

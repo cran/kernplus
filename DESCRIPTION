@@ -1,15 +1,15 @@
 Package: kernplus
-Version: 0.1.1
-Date: 2018-04-05
+Version: 0.1.2
+Date: 2019-02-25
 Type: Package
 Title: A Kernel Regression-Based Multidimensional Wind Turbine Power
         Curve
 Authors@R: c(
   person("Yu", "Ding", email = "yuding@tamu.edu", role = c("aut")),
-  person("Hoon", "Hwangbo", email = "hhwangbo17@gmail.com", role = c("aut","cre")))
+  person("Hoon", "Hwangbo", email = "hhwangb1@utk.edu", role = c("aut","cre")))
 Author: Yu Ding [aut],
   Hoon Hwangbo [aut, cre]
-Maintainer: Hoon Hwangbo <hhwangbo17@gmail.com>
+Maintainer: Hoon Hwangbo <hhwangb1@utk.edu>
 Description: Provides wind energy practitioners with an effective machine learning-based
     tool that estimates a multivariate power curve and predicts the wind power output
     for a specific environmental condition.
@@ -19,8 +19,8 @@ Encoding: UTF-8
 LazyData: true
 Imports: circular (>= 0.4-7), KernSmooth (>= 2.23-15), mixtools (>=
         1.1.0), graphics (>= 3.3.0), stats (>= 3.3.0)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 NeedsCompilation: no
-Packaged: 2018-04-05 21:00:44 UTC; hhwan
+Packaged: 2019-02-24 20:12:07 UTC; User
 Repository: CRAN
-Date/Publication: 2018-04-05 21:46:54 UTC
+Date/Publication: 2019-02-24 21:50:06 UTC

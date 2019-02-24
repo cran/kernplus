@@ -1,13 +1,13 @@
-3a3db0615e265b629851755448cfbfbc *DESCRIPTION
+da6fae9f28251f374d560b7e37da86b8 *DESCRIPTION
 a5c8ba64d17bceee03e69808084904cb *NAMESPACE
 8fbcf2d09970cf5bb79f168230dfd83d *R/add_noise.R
-d34ab4f1427771a69ad4eabc4f977493 *R/copyright.R
+cc6bc78eb1eea6ce2adac1fdc8d954a0 *R/copyright.R
 c453df8277282d2bc1d6e34f0ed4d224 *R/ctrl_seed.R
 507171b978d9449a05819a6c134b57b3 *R/data.R
-a95462a57cffa23f5a2db121ccb992b3 *R/div_regions.R
+efdb902fdedba0a91a5f49499eea96c9 *R/div_regions.R
 522d720fc39efbbdc53a5b1042b164d5 *R/est_bandwidth.R
 3bdd499a1017ad26cc42c65c6724a97b *R/fit_kernels.R
-c1ae01f0322c948724301b2a2e4c752a *R/pred_pwcurv.R
+722e4dc42770bb91d0bf7afafdf8d4b1 *R/pred_pwcurv.R
 bc201bb51cd419d5bd01cfa29c7015ec *data/windpw.rda
 9f3e57708706a44cfcf6d5a0db41f16e *man/kp.pwcurv.Rd
 2739d84654b6cc1000107570f6404548 *man/windpw.Rd
